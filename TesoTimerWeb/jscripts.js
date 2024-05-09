@@ -7,12 +7,16 @@ class Distrito {
     }
     
     clock() {
-        let minutos = Math.floor(this.tiempo / 60);
-        let segundos = Math.floor(this.tiempo % 60);
+        let minutos = Math.floor(Math.abs(this.tiempo) / 60);
+        let segundos = Math.floor(Math.abs(this.tiempo) % 60);
         let minutosFormateados = minutos < 10 ? '0' + minutos : minutos;
         let segundosFormateados = segundos < 10 ? '0' + segundos : segundos;
         this.tiempo--;
-        return (`${minutosFormateados}:${segundosFormateados}`);
+        if (this.tiempo >= 0){
+            return (`${minutosFormateados}:${segundosFormateados}`);
+        }else{
+            return ('00:00');
+        }
     }
 }
 
