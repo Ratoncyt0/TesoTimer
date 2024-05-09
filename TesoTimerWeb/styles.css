@@ -1,0 +1,18 @@
+.raty-div-center {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.raty-h1 {
+    text-align: center;
+    font-size: larger;
+}
+
+.raty-box {
+    display: inline-block !important;
+    margin: 1% !important;
+    width: 30% !important;
+    height: 70px;
+}

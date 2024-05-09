@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temporizador</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #temporizador {
+        text-align: center;
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div id="temporizador">
+    <p id="tiempo-restante">15:00</p>
+</div>
+
+<script>
+    // Función para iniciar el temporizador
+    function iniciarTemporizador() {
+        var tiempoRestante =0.5 * 60; // 15 minutos en segundos
+
+        var temporizador = setInterval(function() {
+            var minutos = Math.floor(tiempoRestante / 60);
+            var segundos = tiempoRestante % 60;
+
+            // Formatear los minutos y segundos para que tengan dos dígitos
+            var minutosFormateados = minutos < 10 ? '0' + minutos : minutos;
+            var segundosFormateados = segundos < 10 ? '0' + segundos : segundos;
+
+            document.getElementById('tiempo-restante').textContent = minutosFormateados + ':' + segundosFormateados;
+
+            if (tiempoRestante === 0) {
+                clearInterval(temporizador);
+                alert('¡Tiempo agotado!');
+            } else {
+                tiempoRestante--;
+            }
+        }, 1000);
+
+        // Restablecer el temporizador cuando se hace clic en él
+        document.getElementById('temporizador').addEventListener('click', function() {
+            clearInterval(temporizador);
+            document.getElementById('tiempo-restante').textContent = '15:00';
+            iniciarTemporizador();
+        });
+    }
+
+    // Iniciar el temporizador cuando se carga la página
+    window.onload = iniciarTemporizador();
+</script>
+
+</body>
+</html>
