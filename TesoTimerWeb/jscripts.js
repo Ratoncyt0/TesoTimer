@@ -1,5 +1,5 @@
-var tiempoMaximo = 15 * 60 // tiempo en segundos
-
+var tiempoMaximo = 15 * 60;// tiempo en segundos
+const tick = 1000; // cada cuanto hacer clock en ms
 class Distrito {
     constructor(id){
         this.id = id;
@@ -15,7 +15,7 @@ class Distrito {
         if (this.tiempo >= 0){
             return (`${minutosFormateados}:${segundosFormateados}`);
         }else{
-            return ('00:00');
+            return (`<i class="fas fa-skull"></i> - ${minutosFormateados}:${segundosFormateados}`);
         }
     }
 }
@@ -26,10 +26,10 @@ function iniciar() {
     
     intervalo = setInterval(function(){
         distritos.forEach(element => {
-            document.getElementById(element.id).innerText = element.clock();
+            document.getElementById(element.id).innerHTML = element.clock();
         });
     },
-    1000
+    tick
     );
 
     $(document).ready(function() { // Click en boton reinicio de su elemento designado
