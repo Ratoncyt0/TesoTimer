@@ -22,7 +22,7 @@ class Distrito {
 
 function iniciar() {
     
-    let distritos = [new Distrito("p1"), new Distrito("p2"), new Distrito("p3"), new Distrito("p4"), new Distrito("p5"), new Distrito("p6")];
+    let distritos = [new Distrito("d1"), new Distrito("d2"), new Distrito("d3"), new Distrito("d4"), new Distrito("d5"), new Distrito("d6")];
     
     intervalo = setInterval(function(){
         distritos.forEach(element => {
